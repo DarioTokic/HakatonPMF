@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+
+:root {
+  --crna: #404258;
+  --najtamnija: #474E68;
+  --tamna: #50577A;
+  --svijetla: #6B728E;
+}
+
+
+body {
+  margin: 0;
+  background: var(--svijetla);
+  color: white;
+  font-family: 'Fira Code', monospace;
+}
+
+.flex {
+  display: flex;
+}
+
+.prozirnaNavlaka {
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prozirnaNavlaka form {
+  display: flex;
+  background: var(--tamna);
+  opacity: 0.8;
+  border-radius: 10px;
+  padding: 2rem;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}

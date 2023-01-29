@@ -1,0 +1,56 @@
+.container {
+    background: var(--najtamnija);
+    color: white;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.head_meni {
+    justify-content: space-between;
+}
+
+.head_meni a {
+    text-decoration: none;
+    color: white;
+    margin: 0 2rem;
+}
+
+.head_meni a:hover {
+    color: var(--svijetla);
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(25rem, 1fr));
+}
+
+.event {
+    background-position: center;
+    background-size: cover;
+    text-shadow: 1px 1px black;
+}
+
+.event a {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.event button {
+    background: none;
+    border: none
+}
+
+.event button:hover {
+    cursor: pointer;
+    background: var(--tamna);
+    border-radius: 10px;
+}
+
+.event button img {
+    height: 3rem;
+}
+
+.event .flex {
+    justify-content: space-between;
+}

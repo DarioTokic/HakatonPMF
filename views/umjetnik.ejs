@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WTW</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bar.css' />
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/profil.css">
+
+</head>
+<body>
+<header>
+    <div class="bar">
+        <div class="left_leaning">
+            <a href="/"> <img src="images/logo.png" alt="ikona" style="height: 3rem"> </a>
+        </div>
+        <div class="right_leaning2">
+            <% if(!korisnik) {%>
+                <button onclick="location.href = 'login'" id="login_btn"><img src="images/login.png" alt=""></button>
+                <button onclick=" location.href = 'signup'" id="signup_btn" ><img src="images/signup.png" alt=""></button>
+            <%} else {if(korisnik == 'umjetnik'){%>
+                <button onclick=" location.href = 'umjetnik'" id="profil_btn"><img src="images/user.png" alt=""></button>
+            <%} else {%>
+                <button onclick=" location.href = 'lokal'" id="profil_btn"><img src="images/user.png" alt=""></button>
+            <%}%>
+            <button onclick=" location.href = 'logout'" id="logout_btn"><img src="images/logout.png" alt=""></button>
+            <%}%>
+        </div>
+    </div>
+</header>
+<main>
+    <section id="o_meni">
+        <figure>
+            <img style="height: 10rem" src="<%= (umjetnik.profilna).slice(7) %>">
+        </figure>
+        <p><strong><%= umjetnik.username %></strong></p>
+        <p> <%= umjetnik.zanr %> </p>
+        <p><%= umjetnik.opis %></p>
+        <p><%= umjetnik.cijena_od%> - <%= umjetnik.cijena_do %></p>
+    </section>
+
+    <section id="odobreni_eventi" class="eventLista">
+        <% if(umjetnik.eventi.length > 0 ){
+        umjetnik.eventi.forEach(dogadjaj => { %>
+            <div>
+                <figure> <img style="height: 15rem" src="<%= (dogadjaj.naslovna).slice(7) %> " > </figure>
+                <p><%= dogadjaj.ime %></p>
+                <button>Otkaži</button>
+            </div>
+        <%})
+        } %>
+    </section>
+    <section id="predlozeni_eventi" class="eventLista">
+        <% if(umjetnik.prijedlozi.length > 0 ){
+        umjetnik.prijedlozi.forEach(dogadjaj => { %>
+            <div>
+                <figure> <img style="height: 15rem" src="<%= (dogadjaj.naslovna).slice(7) %> " > </figure>
+                <p><%= dogadjaj.ime %></p>
+                <form action="/umjetnik/napraviEvent/<%=dogadjaj.proposal_id%>" method="post">
+                    <button>Potvrdi</button>
+                </form>
+                <form action="/umjetnik/obrisiProposal/<%=dogadjaj.proposal_id%>">
+                    <button>Odbij</button>
+                </form>
+            </div>
+        <%})
+        } %>
+    </section>
+
+    <section id="ponudjeni_eventi">
+        <% if(umjetnik.ponude.length > 0 ){
+        umjetnik.ponude.forEach(dogadjaj => { %>
+            <div>
+                <figure> <img src="../images/event_images <%= dogadjaj.naslovna %> " > </figure>
+                <p><%= dogadjaj.ime %></p>
+            </div>
+        <%})
+        } %>
+    </section>
+</main>
+</body>
+</html>

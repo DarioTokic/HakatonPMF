@@ -1,0 +1,61 @@
+.bar {
+    background: var(--najtamnija);
+    padding: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bar .right_leaning {
+    display: flex;
+    align-items: center;
+}
+
+.bar .right_leaning2 {
+    display: flex;
+    align-items: center;
+}
+
+.bar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+.bar button {
+    height: 30px;
+    background: none;
+    border: none
+}
+
+.bar button img {
+    height: 1.6rem;
+}
+
+.bar #search {
+    border-radius: 50px;
+    opacity: 0;
+    transition: all 0.5s;
+}
+.bar #search.pokazi {
+    opacity: 1;
+}
+.bar .right_leaning{
+    transition: 0.5s;
+    transform: translateX(50%);
+}
+
+.bar .right_leaning.pokazi {
+    transform: translateX(0);
+}
+
+#search_container {
+    display: flex;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
